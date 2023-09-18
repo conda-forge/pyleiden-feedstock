@@ -1,5 +1,5 @@
 {% set name = "pyleiden" %}
-{% set version = "0.1.1" %}
+{% set version = "0.1.2" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/pyleiden-{{ version }}.tar.gz
-  sha256: 61d9fa1b8a71b1f13bebc6b94e6eed2f6d4a1228ac223dab03db67f77ff3ae49
+  sha256: b81db474ab414ac9880ad2e0021e300366f5f826ec5091ef65755170a234c1c5
 
 build:
   entry_points:

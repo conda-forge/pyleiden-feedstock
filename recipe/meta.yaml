@@ -6,7 +6,7 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/pyleiden-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/pyleiden-{{ version }}.tar.gz
   sha256: b81db474ab414ac9880ad2e0021e300366f5f826ec5091ef65755170a234c1c5
 
 build:
@@ -14,15 +14,15 @@ build:
     - pyleiden = pyleiden.pyleiden:main
   noarch: python
   script: {{ PYTHON }} -m pip install . -vv
-  number: 0
+  number: 1
 
 requirements:
   host:
-    - python >=3.6
+    - python {{ python_min }}
     - flit-core >=3.2,<4
     - pip
   run:
-    - python >=3.6
+    - python >={{ python_min }}
     - python-igraph >=0.10.3
 
 test:
@@ -33,6 +33,7 @@ test:
     - pyleiden --help
   requires:
     - pip
+    - python {{ python_min }}
 
 about:
   summary: 'pyLeiden: a CLI tool for clustering with the Leiden algorithm'
